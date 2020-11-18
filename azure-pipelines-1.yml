@@ -18,3 +18,12 @@ steps:
 
 - script: npm ci
   displayName: 'npm install'
+
+
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Free Trial (de41a4b5-07b4-4eff-ba63-33c5643b5f9a)'
+    appType: 'webApp'
+    WebAppName: 'cart'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
